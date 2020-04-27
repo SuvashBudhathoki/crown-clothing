@@ -6,9 +6,10 @@ import { createStructuredSelector } from "reselect";
 
 import HomePage from "./pages/homepage/Homepage";
 import ShopPage from "./pages/shop/ShopPage";
-import Header from "./components/header/Header";
 import SignInSignUp from "./pages/sign-in-sign-up/SignInSignUp";
 import CheckoutPage from "./pages/checkout/Checkout";
+
+import Header from "./components/header/Header";
 
 import { auth, createUserProfileDocument } from "./firebase/FirebaseUtils";
 
@@ -20,12 +21,12 @@ class App extends React.Component {
   componentDidMount() {
     const { setCurrentUser } = this.props;
 
-    this.unSuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unSuscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot(snapShot => {
+        userRef.onSnapshot((snapShot) => {
           setCurrentUser({
-            currentUser: { id: snapShot.id, ...snapShot.data() }
+            currentUser: { id: snapShot.id, ...snapShot.data() },
           });
         });
       } else {
@@ -60,11 +61,11 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
