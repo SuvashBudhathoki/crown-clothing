@@ -1,8 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import "./menu.styles.scss";
-
 //styled component
 
 import {
