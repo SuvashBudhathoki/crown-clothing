@@ -24,3 +24,5 @@
 ## Inspiration
 
 This app is based on the **Complete React Developer in 2020 (w/Redux, Hooks, GraphQl)** via Udemy. Zero to Mastery Academy
+
+check to see if any problem in pushing the new update
