@@ -43,7 +43,7 @@ const CheckoutPage = ({ cartItems, total }) => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
     <TotalContainer>
-      <span>Total: ${total}</span>
+      <span>Total in AUD: ${total}</span>
     </TotalContainer>
     <TestWarningContainer>
       *Please use the following test credit card for payments*
